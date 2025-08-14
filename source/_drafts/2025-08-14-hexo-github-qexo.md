@@ -2,7 +2,7 @@
 abbrlink: ''
 categories:
 - - 白嫖教程
-cover: https://img.090227.xyz/file/ae62475a131f3734a201c.png
+cover: https://13fe9ff.webp.li/2024/11/6a16b8185a435cf9b807dbcc894d92e1.png
 date: '2025-08-14T08:20:54.576+08:00'
 layout: Post
 tags:
