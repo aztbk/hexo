@@ -11,7 +11,7 @@ tags:
 - github
 title: Qexo 一个美观,强大的在线,静态博客管理器Hexo+github+qexo
 top_img: https://img.090227.xyz/file/ae62475a131f3734a201c.png
-updated: '2025-08-14T08:52:39.864+08:00'
+updated: '2025-08-14T08:58:22.433+08:00'
 ---
 # 前言
 
@@ -360,7 +360,6 @@ jobs:
 **最后，需要到GitHub pages那个仓库里面把默认页改成master就好了**
 
 ![img](https://t.663618.xyz/i/2023/08/11/64d6229ac9982.png "img")
-
 
 # 三、通过 Vercel 部署 Qexo
 
