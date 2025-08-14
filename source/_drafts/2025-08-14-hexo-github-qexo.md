@@ -234,11 +234,17 @@ hexo deploy
 
 ![img](https://picgo91.cdn456.eu.org/20250814115324009.png "img")
 
-然后回到`blog-demo`根目录右键打开git bash
+#### 1、上传`blog-demo`到`xxx.gitpub.io`这个仓库
+
+然后回到`blog-demo`根目录右键打开git bash，上传到`xxx.gitpub.io`这个仓库
 
 ![img](https://picgo91.cdn456.eu.org/20250814120150691.png "img")
 
 同样`SSH`和`HTTPS`均可。`SSH`在绑定过`ssh key`的设备上无需再输入密码，`HTTPS`则需要输入密码，但是`SSH`偶尔会遇到端口占用的情况。
+
+#### 2、上传拷贝出来的文件到`hexo`仓库
+
+方法和1的步骤相同，比如你拷贝出来的文件放hexo你就到文件夹hexo右击。
 
 ### 3、获取 Github token
 
@@ -255,7 +261,7 @@ note随便填，Expiration选择No expiration，勾选repo和workflow，其他�
 
 ![img](https://picgo91.cdn456.eu.org/20250814120735091.png "img")
 
-打开自动化仓库myhexo的`Settings<span> </span>`-> `Secrets and variables` -> `Actions` -> `New repository secret`
+打开自动化仓库hexo的`Settings<span> </span>`-> `Secrets and variables` -> `Actions` -> `New repository secret`
 
 ![](https://picgo91.cdn456.eu.org/20250814121043912.png)
 
