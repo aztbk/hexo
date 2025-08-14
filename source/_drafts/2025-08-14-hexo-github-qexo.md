@@ -2,16 +2,17 @@
 abbrlink: ''
 categories:
 - - 白嫖教程
-cover: https://13fe9ff.webp.li/2024/11/6a16b8185a435cf9b807dbcc894d92e1.png
+cover: https://picgo91.cdn456.eu.org/20250814123521687.png
 date: '2025-08-14T08:20:54.576+08:00'
 layout: Post
 tags:
 - Qexo
 - Hexo
 - github
+- 安知鱼
 title: 利用Qexo 一个美观强大的在线静态博客管理器Hexo安知鱼主题+github
-top_img: https://img.090227.xyz/file/ae62475a131f3734a201c.png
-updated: '2025-08-14T10:46:07.430+08:00'
+top_img: https://picgo91.cdn456.eu.org/20250814123521687.png
+updated: '2025-08-14T12:23:31.437+08:00'
 ---
 # 前言
 
@@ -237,7 +238,6 @@ hexo deploy
 
 ![img](https://picgo91.cdn456.eu.org/20250814120150691.png "img")
 
-
 同样`SSH`和`HTTPS`均可。`SSH`在绑定过`ssh key`的设备上无需再输入密码，`HTTPS`则需要输入密码，但是`SSH`偶尔会遇到端口占用的情况。
 
 ### 3、获取 Github token
@@ -376,13 +376,14 @@ jobs:
 
 # 初始化配置
 
-[![](https://13fe9ff.webp.li/2024/11/d14a6a28fa42dc905ad1f9572d280abb.png)](https://13fe9ff.webp.li/2024/11/d14a6a28fa42dc905ad1f9572d280abb.png)
+![](https://picgo91.cdn456.eu.org/20250814122313486.png)
 
-[![](https://13fe9ff.webp.li/2024/11/8781b5e062a34509ccf39ed0000e8033.png)](https://13fe9ff.webp.li/2024/11/8781b5e062a34509ccf39ed0000e8033.png)
+![](https://picgo91.cdn456.eu.org/20250814122458597.png)
 
-## GitHub 配置
+GitHub 配置
 
-[![](https://13fe9ff.webp.li/2024/11/7f4e9a472b66f4a2b73ae1c8e035b4ef.png)](https://13fe9ff.webp.li/2024/11/7f4e9a472b66f4a2b73ae1c8e035b4ef.png)
+![](https://picgo91.cdn456.eu.org/20250814122606084.png)
+
 填写博客源码所在仓库的分支名称，例如：
 
 `main`
@@ -399,25 +400,17 @@ jobs:
 
 若 Hexo 源码在仓库根目录，则留空；否则填写路径：
 
+![](https://picgo91.cdn456.eu.org/20250814123317560.png)
 
-| `path/`<br/> |
-| ------------ |
-
-[![](https://13fe9ff.webp.li/2024/11/f2f7c6b57196afa6652292807698db91.png)](https://13fe9ff.webp.li/2024/11/f2f7c6b57196afa6652292807698db91.png)
-
-[![](https://13fe9ff.webp.li/2024/11/5e4c876cd000a6d5f5da45bb256c963e.png)](https://13fe9ff.webp.li/2024/11/5e4c876cd000a6d5f5da45bb256c963e.png)
-
-[![](https://13fe9ff.webp.li/2024/11/bcc3ab289c7a355ed8116d92faddba80.png)](https://13fe9ff.webp.li/2024/11/bcc3ab289c7a355ed8116d92faddba80.png)
-
-## Vercel 配置
+Vercel 配置
 
 * **VERCEL\_TOKEN**：在[Vercel 账户设置](https://vercel.com/account/tokens) 中生成。
 * **PROJECT\_ID**：在 **Project Settings -> General -> Project ID** 中找到。
 
 配置完成后，即可登录后台管理博客内容。
 
-[![](https://13fe9ff.webp.li/2024/11/df6b8e762d048854683e5e31f6e262f2.png)](https://13fe9ff.webp.li/2024/11/df6b8e762d048854683e5e31f6e262f2.png)
+![](https://picgo91.cdn456.eu.org/20250814123429876.png)
 
-[![](https://13fe9ff.webp.li/2024/11/2fa7cd4b16b469345b8e628d88affae2.png)](https://13fe9ff.webp.li/2024/11/2fa7cd4b16b469345b8e628d88affae2.png)
+![](https://picgo91.cdn456.eu.org/20250814123521687.png)
 
-[![](https://13fe9ff.webp.li/2024/11/6a16b8185a435cf9b807dbcc894d92e1.png)](https://13fe9ff.webp.li/2024/11/6a16b8185a435cf9b807dbcc894d92e1.png)
+![](https://picgo91.cdn456.eu.org/20250814123712814.png)
