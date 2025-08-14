@@ -9,7 +9,7 @@ tags:
 - Qexo
 - Hexo
 - github
-title: Qexo 一个美观,强大的在线,静态博客管理器Hexo+github+qexo
+title: 利用Qexo 一个美观强大的在线静态博客管理器Hexo安知鱼主题+github
 top_img: https://img.090227.xyz/file/ae62475a131f3734a201c.png
 updated: '2025-08-14T10:46:07.430+08:00'
 ---
