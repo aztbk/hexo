@@ -11,7 +11,7 @@ tags:
 - github
 title: Qexo 一个美观,强大的在线,静态博客管理器Hexo+github+qexo
 top_img: https://img.090227.xyz/file/ae62475a131f3734a201c.png
-updated: '2025-08-14T08:43:31.073+08:00'
+updated: '2025-08-14T08:52:39.864+08:00'
 ---
 # 前言
 
@@ -289,13 +289,13 @@ git push -u origin master  #把本地库的所有内容推送到远程库上
 
 **复制以下代码到里面**
 
-```powershell
+```
 name: 自动部署
 
 on:
   push:
     branches:
-      - master
+      - main
 
   release:
     types:
@@ -305,47 +305,48 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-    - name: 检查分支
-      uses: actions/checkout@v2
-      with:
-        ref: master
+      - name: 检查分支
+        uses: actions/checkout@v2
+        with:
+          ref: main
 
-    - name: 安装 Node
-      uses: actions/setup-node@v1
-      with:
-        node-version: "16.x"
+      - name: 安装 Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: "16.x"
 
-    - name: 安装 Hexo
-      run: |
-        export TZ='Asia/Shanghai'
-        npm install hexo-cli -g
+      - name: 安装 Hexo
+        run: |
+          export TZ='Asia/Shanghai'
+          npm install hexo-cli -g
 
-    - name: 缓存 Hexo
-      uses: actions/cache@v1
-      id: cache
-      with:
-        path: node_modules
-        key: ${{runner.OS}}-${{hashFiles('**/package-lock.json')}}
+      - name: 缓存 Hexo
+        uses: actions/cache@v4
+        id: cache
+        with:
+          path: node_modules
+          key: ${{ runner.OS }}-${{ hashFiles('**/package-lock.json') }}
 
-    - name: 安装依赖
-      if: steps.cache.outputs.cache-hit != 'true'
-      run: |
-        npm install --save
+      - name: 安装依赖
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: npm install --save
 
-    - name: 生成静态文件
-      run: |
-        hexo clean
-        hexo generate
+      - name: 生成静态文件
+        run: |
+          hexo clean
+          hexo generate
+          # 禁用 Jekyll
+          echo "" > public/.nojekyll
 
-    - name: 部署 #此处master:master 指从本地的master分支提交到远程仓库的master分支(不是博客的分支写master即可)，若远程仓库没有对应分支则新建一个。如有其他需要，可以根据自己的需求更改。
-      run: |
-        cd ./public
-        git init
-        git config --global user.name '${{ secrets.GITHUBUSERNAME }}'
-        git config --global user.email '${{ secrets.GITHUBEMAIL }}'
-        git add .
-        git commit -m "${{ github.event.head_commit.message }} $(date +"%Z %Y-%m-%d %A %H:%M:%S") Updated By Github Actions"
-        git push --force --quiet "https://${{ secrets.GITHUBUSERNAME }}:${{ secrets.GITHUBTOKEN }}@github.com/${{ secrets.GITHUBUSERNAME }}/${{ secrets.GITHUBUSERNAME }}.github.io.git" master:master  # GitHub配置
+      - name: 部署
+        run: |
+          cd ./public
+          git init
+          git config --global user.name '${{ secrets.GITHUBUSERNAME }}'
+          git config --global user.email '${{ secrets.GITHUBEMAIL }}'
+          git add .
+          git commit -m "${{ github.event.head_commit.message }} $(date +"%Z %Y-%m-%d %A %H:%M:%S") Updated By Github Actions"
+          git push --force --quiet "https://${{ secrets.GITHUBUSERNAME }}:${{ secrets.GITHUBTOKEN }}@github.com/${{ secrets.GITHUBUSERNAME }}/${{ secrets.GITHUBUSERNAME }}.github.io.git" master:master
 ```
 
 **粘贴上去后点击Commit changes...**
@@ -360,8 +361,81 @@ jobs:
 
 ![img](https://t.663618.xyz/i/2023/08/11/64d6229ac9982.png "img")
 
-## 三、搭建Hexo博客后台管理Qexo
 
-> Qexo，一个快速、美观、强大的在线hexo管理器，支持使用 Vercel 零成本一键部署,，您只需要配置一个免费数据库。特色功能：自定义图床上传图片，在线配置编辑，在线页面管理，开放 API，自动检查更新，在线一键更新，快速接入友情链接，简单的说说短文，类似不算子的统计，自动填文章模板
+# 三、通过 Vercel 部署 Qexo
 
-### 1、注册MongoDB
+## 1. 一键部署
+
+点击以下按钮完成一键部署：[Vercel 一键部署](https://vercel.com/new/clone?repository-url=https://github.com/am-abudu/Qexo)
+
+> **注意**：首次部署可能会出现错误提示，可忽略并继续后续步骤。
+
+## 2. 修改 Node.js 版本
+
+由于 **[Vercel 的已知问题](https://vercel.com/docs/functions/runtimes/python#python-dependencies)，需将项目的 Node.js 版本调整为** **18.x**。
+路径：**Settings -> General -> Node.js Version**
+
+## 3. 创建 Vercel 数据库
+
+1. 进入[Vercel Storage 页面](https://vercel.com/dashboard/stores)。
+2. 点击 \***Create Database**，选择 **Neon** ，设置区域为 **Washington, DC., USA - iad1**，创建免费数据库。
+
+## 4. 绑定项目
+
+在 **Projects** 页面选择对应项目，点击 **Connect Project** 进行绑定。
+
+## 5. 部署 Qexo
+
+回到项目页面，点击**Redeploy** 开始部署。部署完成后，无报错即可访问域名进入初始化页面。
+
+---
+
+# 初始化配置
+
+[![](https://13fe9ff.webp.li/2024/11/d14a6a28fa42dc905ad1f9572d280abb.png)](https://13fe9ff.webp.li/2024/11/d14a6a28fa42dc905ad1f9572d280abb.png)
+
+[![](https://13fe9ff.webp.li/2024/11/8781b5e062a34509ccf39ed0000e8033.png)](https://13fe9ff.webp.li/2024/11/8781b5e062a34509ccf39ed0000e8033.png)
+
+## GitHub 配置
+
+[![](https://13fe9ff.webp.li/2024/11/7f4e9a472b66f4a2b73ae1c8e035b4ef.png)](https://13fe9ff.webp.li/2024/11/7f4e9a472b66f4a2b73ae1c8e035b4ef.png)
+填写博客源码所在仓库的分支名称，例如：
+
+
+| `master`<br/> |
+| ------------- |
+
+## GitHub 密钥
+
+填写生成的 GitHub Token，例如：
+
+
+| `wrq_P8sYPlYA9fjMlOPEYSKA84xxxxxxxxxxxxxx`<br/> |
+| ----------------------------------------------- |
+
+## 仓库路径
+
+若 Hexo 源码在仓库根目录，则留空；否则填写路径：
+
+
+| `path/`<br/> |
+| ------------ |
+
+[![](https://13fe9ff.webp.li/2024/11/f2f7c6b57196afa6652292807698db91.png)](https://13fe9ff.webp.li/2024/11/f2f7c6b57196afa6652292807698db91.png)
+
+[![](https://13fe9ff.webp.li/2024/11/5e4c876cd000a6d5f5da45bb256c963e.png)](https://13fe9ff.webp.li/2024/11/5e4c876cd000a6d5f5da45bb256c963e.png)
+
+[![](https://13fe9ff.webp.li/2024/11/bcc3ab289c7a355ed8116d92faddba80.png)](https://13fe9ff.webp.li/2024/11/bcc3ab289c7a355ed8116d92faddba80.png)
+
+## Vercel 配置
+
+* **VERCEL\_TOKEN**：在[Vercel 账户设置](https://vercel.com/account/tokens) 中生成。
+* **PROJECT\_ID**：在 **Project Settings -> General -> Project ID** 中找到。
+
+配置完成后，即可登录后台管理博客内容。
+
+[![](https://13fe9ff.webp.li/2024/11/df6b8e762d048854683e5e31f6e262f2.png)](https://13fe9ff.webp.li/2024/11/df6b8e762d048854683e5e31f6e262f2.png)
+
+[![](https://13fe9ff.webp.li/2024/11/2fa7cd4b16b469345b8e628d88affae2.png)](https://13fe9ff.webp.li/2024/11/2fa7cd4b16b469345b8e628d88affae2.png)
+
+[![](https://13fe9ff.webp.li/2024/11/6a16b8185a435cf9b807dbcc894d92e1.png)](https://13fe9ff.webp.li/2024/11/6a16b8185a435cf9b807dbcc894d92e1.png)
