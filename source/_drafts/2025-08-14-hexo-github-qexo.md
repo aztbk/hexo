@@ -1,6 +1,7 @@
 ---
 abbrlink: ''
-categories: []
+categories:
+- - 白嫖教程
 cover: https://picgo91.cdn456.eu.org/20250814123521687.png
 date: '2025-08-17'
 layout: post
