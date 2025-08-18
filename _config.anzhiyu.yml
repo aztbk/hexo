@@ -252,12 +252,12 @@ post_copyright:
 reward:
   enable: true
   QR_code:
-    - img: https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-weichat.png
+    - img: https://picgo91.cdn456.eu.org/20250818140014220.jpg
       link:
-      text: 微信
-    - img: https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-alipay.png
-      link:
-      text: 支付宝
+      text: USDT(TRC20)
+#    - img: https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-alipay.png
+#      link:
+#      text: 支付宝
 
 # Post edit
 # Easily browse and edit blog source code online.
