@@ -1,32 +1,69 @@
 ---
-title: {{ title }} #【必需】页面标题
-date: #【必需】页面创建日期
-updated: #【可选】页面更新日期
-tags: #【可选】文章标签
-categories: #【可选】文章分类
-keywords: #【可选】文章关键字
-description: #【可选】文章描述
-top: # 1 置顶
-top_img: #【可选】文章顶部图片
-comments: #【可选】显示文章评论模块(默认 true)
-cover: https://img.090227.xyz/file/ae62475a131f3734a201c.png #【可选】文章缩略图
-toc: #【可选】显示文章 TOC
-toc_number: #【可选】显示 toc_number
-toc_style_simple: #【可选】显示 toc 简洁模式
-copyright: #【可选】显示文章版权模块
-copyright_author: #【可选】文章版权作者
-copyright_author_href: #【可选】作者链接
-copyright_url: #【可选】版权链接
-copyright_info: #【可选】版权声明文字
-mathjax: #【可选】显示 mathjax
-katex: #【可选】显示 katex
-aplayer: #【可选】加载 aplayer 的 js 和 css
-highlight_shrink: #【可选】配置代码框是否展开
-aside: #【可选】显示侧边栏 (默认 true)
-swiper_index: 10 #【可选】首页轮播图配置
-top_group_index: 10 #【可选】首页右侧卡片组配置
-ai: #【可选】文章 ai 摘要
-background: "#fff" #【可选】文章主色
+abbrlink: ydcdnk80
+categories: []
+cover: https://img.090227.xyz/file/ae62475a131f3734a201c.png
+date: null
+layout: post
+message: 欢迎来到我的博客，请输入密码以阅读。
+password: '@KY66812'
+tags: []
+title: 移动CDNK搭建命令
+top_img: https://img.090227.xyz/file/ae62475a131f3734a201c.png
+updated: '2025-10-02T16:55:30.699+08:00'
+wrong_pass_message: 密码错误请重新输入
 ---
-<div class="video-container">[视频内嵌代码]</div>
-<style>.video-container { position: relative; padding-top: 56.25%; } .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style>
+# 移动CDNK搭建命令
+
+## 第一次运行：
+
+```
+cd /etc && wget https://picgo91.github.io/CDNK && chmod 744 /etc/CDNK && ./CDNK -q 80 -w 5 -c 3
+```
+
+## 停止CDNK.service：
+
+```
+sudo systemctl stop CDNK.service
+```
+
+## 停止开机启动CDNK.service：
+
+```
+sudo systemctl disable CDNK.service
+```
+
+## 检查CDNK.service是否关闭：
+
+```
+sudo systemctl status CDNK.service
+```
+
+## 停止程序：
+
+```
+pkill -f CDNK
+```
+
+## 删除服务文件：
+
+```
+sudo rm /etc/systemd/system/CDNK.service
+```
+
+## 检查是否已删除：
+
+```
+systemctl list-unit-files | grep CDNK.service
+```
+
+## 删除程序：
+
+```
+sudo rm /etc/CDNK
+```
+
+## 检查是否已删除
+
+```
+systemctl list-unit-files | grep CDNK
+```
